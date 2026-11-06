@@ -1,0 +1,12 @@
+<h1>Lista de alunos</h1>
+
+<ul>
+  @for (aluno of alunos; track aluno.id) {
+    <li>
+      {{ aluno.nome }} - {{ aluno.idade }} anos
+    </li>
+  }
+  @empty {
+    <li>Nenhum aluno encontrado.</li>
+  }
+</ul>
