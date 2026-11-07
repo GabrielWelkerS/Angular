@@ -11,7 +11,7 @@ export class Aluno {
 
   private http = inject(HttpClient);
 
-  private apiUrl = 'http://localhost:8080/alunos';
+  private apiUrl = 'http://localhost:3000/alunos';
 
   //Listar
   listar(): Observable<AlunoModel[]> {

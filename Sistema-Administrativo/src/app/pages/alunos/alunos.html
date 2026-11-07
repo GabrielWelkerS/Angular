@@ -1,7 +1,14 @@
+<h1>Cadastrar aluno</h1>
+
+<input type="text" placeholder="Nome">
+<input type="number" placeholder="Idade">
+
+<button type="button">Cadastrar</button>
+
 <h1>Lista de alunos</h1>
 
 <ul>
-  @for (aluno of alunos; track aluno.id) {
+  @for (aluno of alunos(); track aluno.id) {
     <li>
       {{ aluno.nome }} - {{ aluno.idade }} anos
     </li>

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Aluno } from '../../services/aluno';
 import { Aluno as AlunoModel } from '../../interfaces/aluno';
 
@@ -10,17 +10,18 @@ export class Alunos {
 
   private alunoService = inject(Aluno);
 
-  alunos: AlunoModel[] = [];
+  alunos = signal<AlunoModel[]>([]);
 
   ngOnInit() {
     this.alunoService.listar().subscribe({
       next: (dados) => {
-        this.alunos = dados;
+        console.log('Dados recebidos:', dados);
+        this.alunos.set(dados);
+        console.log('Dados no Signal:', this.alunos());
       },
       error: (erro) => {
-        console.error('Erro ao buscar alunos:', erro);
+        console.error('Erro:', erro);
       }
     });
   }
-
 }
